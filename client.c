@@ -6,7 +6,7 @@
 /*   By: rmakinen <rmakinen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 13:08:15 by rmakinen          #+#    #+#             */
-/*   Updated: 2023/04/11 16:58:18 by rmakinen         ###   ########.fr       */
+/*   Updated: 2023/04/12 07:01:07 by rmakinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static int	send_signal(int pid, char *str)
 	int		j;
 
 	j = 0;
-	//ft_printf("pid: %i\n", pid);
-	//ft_printf("str: %s\n", str);
+
 	while (str[j] != '\0')
 	{
 		ch = str[j];
@@ -31,14 +30,10 @@ static int	send_signal(int pid, char *str)
 			if (((ch >> i) &1) == 0)
 			{
 				kill(pid, SIGUSR1);
-				ft_printf("i:%i ", i);
-				//ft_printf("sigusr1\n");
 			}
 			else
 			{
 				kill(pid, SIGUSR2);
-				ft_printf("i:%i ", i);
-				//ft_printf("sigusr2\n");
 			}
 			i++;
 			usleep(500);
@@ -55,7 +50,6 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	if (argc > 1)
 	{
-		//ft_printf("segcheck");
 		send_signal(pid, argv[2]);
 	}
 	return (0);
