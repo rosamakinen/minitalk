@@ -6,7 +6,7 @@
 /*   By: rmakinen <rmakinen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:38:30 by rmakinen          #+#    #+#             */
-/*   Updated: 2023/04/12 10:25:05 by rmakinen         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:42:15 by rmakinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ static void	handle_signal(int sig)
 		if(ft_strcmp(&temp, "") == 0)
 		{
 			ft_printf("%s", print);
+			free(print);
 		}
-		print = ft_strjoin(print, &temp);
-
+		else
+			print = ft_strjoin(print, &temp);
 		bit = 0;
 		temp = 0;
 	}
