@@ -6,7 +6,7 @@
 /*   By: rmakinen <rmakinen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 08:13:41 by rmakinen          #+#    #+#             */
-/*   Updated: 2022/11/17 08:12:53 by rmakinen         ###   ########.fr       */
+/*   Updated: 2023/04/12 14:32:31 by rmakinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	size_t	length;
 
+	if (s1 == NULL)
+		return (NULL);
 	i = 0;
 	length = (ft_strlen(s1)+1);
 	new = (char *)malloc(sizeof(char) * length);
